@@ -1,4 +1,4 @@
-" vim-bootstrap 5268b45
+" vim-bootstrap 86e5925
 
 "*****************************************************************************
 "" Vim-PLug core
@@ -32,6 +32,7 @@ call plug#begin(expand('~/.vim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -47,6 +48,8 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -122,18 +125,20 @@ filetype plugin indent on
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8
+set fileencodings=utf-8,big5
 set bomb
 set binary
 set ttyfast
+" Press F12 to switch to Big-5 encoding
+nnoremap <F12> :e ++enc=big5<CR>
 
 "" Fix backspace indent
 set backspace=indent,eol,start
 
 "" Tabs. May be overridden by autocmd rules
-set tabstop=4
+set tabstop=2
 set softtabstop=0
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 
 "" Map leader to ,
@@ -273,7 +278,7 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 50
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+noremap <F3> :NERDTreeToggle<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -370,6 +375,9 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+"" jj is escape
+inoremap jj <esc>
 
 "" fzf.vim
 set wildmode=list:longest,list:full
@@ -488,7 +496,7 @@ let g:rubycomplete_rails = 1
 
 augroup vimrc-ruby
   autocmd!
-  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
+  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec,Fastfile,Matchfile,Appfile,Cakefile setlocal filetype=ruby
   autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
 
@@ -575,3 +583,4 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
