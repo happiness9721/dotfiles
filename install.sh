@@ -5,8 +5,8 @@ ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
 # vim
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 
-# for oh-my-zsh
-# ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
+# etc
+ln -s ~/.dotfiles/etc/gemrc ~/.gemrc
 
 # for config files
 # ln -s ~/.dotfiles/config/gitconfig ~/.gitconfig
