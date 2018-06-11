@@ -50,6 +50,7 @@ Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'ahw/vim-pbcopy'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -496,7 +497,7 @@ let g:rubycomplete_rails = 1
 
 augroup vimrc-ruby
   autocmd!
-  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec,Fastfile,Matchfile,Appfile,Cakefile setlocal filetype=ruby
+  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec,Fastfile,Matchfile,Appfile,Cakefile,Brewfile setlocal filetype=ruby
   autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
 
@@ -584,3 +585,9 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
+set mouse=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
