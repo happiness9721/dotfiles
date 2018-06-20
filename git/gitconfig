@@ -2,10 +2,10 @@
 	name = Joe Jiang
 	email = happiness9721@gmail.com
 [core]
-	excludesfile = /Users/joe/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	fileMode = true
 	editor = vim
 [commit]
-	template = /Users/joe/.stCommitMsg
+	template = ~/.stCommitMsg
 [merge]
 	tool = opendiff
