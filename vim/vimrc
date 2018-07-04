@@ -32,7 +32,6 @@ call plug#begin(expand('~/.vim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -50,7 +49,6 @@ Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'ahw/vim-pbcopy'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -380,6 +378,12 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 "" jj is escape
 inoremap jj <esc>
 
+" Window Resize, using arrow keys
+nnoremap <silent> <Up>    :<C-u>resize -2<CR>
+nnoremap <silent> <Down>  :<C-u>resize +2<CR>
+nnoremap <silent> <Left>  :<C-u>vertical resize -4<CR>
+nnoremap <silent> <Right> :<C-u>vertical resize +4<CR>
+
 "" fzf.vim
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
@@ -432,15 +436,9 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
-noremap YY "+y<CR>
-noremap <leader>p "+gP<CR>
-noremap XX "+x<CR>
-
-if has('macunix')
-  " pbcopy for OSX copy/paste
-  vmap <C-x> :!pbcopy<CR>
-  vmap <C-c> :w !pbcopy<CR><CR>
-endif
+noremap XX "+x
+noremap YY "+Y
+noremap <leader>p <CR>"+P
 
 "" Buffer nav
 noremap <leader>z :bp<CR>
