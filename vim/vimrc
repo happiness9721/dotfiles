@@ -437,7 +437,8 @@ if has('unnamedplus')
 endif
 
 noremap XX "+x
-noremap YY "+Y
+nnoremap YY "+Y
+vnoremap YY "+y
 noremap <leader>p <CR>"+P
 
 "" Buffer nav
