@@ -1,0 +1,5 @@
+set main-view = \
+  date:relative \
+  author:full \
+  id:yes \
+  commit-title:yes,graph,refs,overflow=no
